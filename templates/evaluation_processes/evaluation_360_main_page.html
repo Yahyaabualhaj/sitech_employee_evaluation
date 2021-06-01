@@ -1,0 +1,60 @@
+{% extends "evaluation_processes/layout/layout.html" %}
+{% load static %}
+{% block content %}
+
+    <div id="evaluationApplication">
+
+        <div class="row mt-5">
+            <div class="col-3 mb-5" v-for="member in teamMembers" v-if="member.filled === false">
+                <div class="card text-center" style="width: 16.5rem;height: 22rem;">
+                    <img src="{% static 'img/person.png' %}" class=" user-pic" alt="..." >
+
+                    <div class="card-body mb-1">
+                        <h5 class="card-title"> [[member.fullName]]</h5>
+                        <hr>
+                        <a href="{% url 'evaluation_360_application' %}" class="btn btn-success mt-1">Evaluate</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const evaluationApplication = new Vue({
+            el: '#evaluationApplication',
+            delimiters: ['[[', ']]'],
+            data: {
+
+                teamMembers: [
+                    {id:1,fullName:'Yahya Abualhaj',filled:false},
+                    {id:2,fullName:'Remas Abualhaj',filled:false},
+                    {id:3,fullName:'Yara Abualhaj',filled:false},
+                    {id:4,fullName:'Mohammed Abualhaj',filled:false},
+                    {id:4,fullName:'Suleiman Abualhaj',filled:false},
+                    {id:4,fullName:'Ahmed Abualhaj',filled:false},
+
+                ]
+
+
+            },
+            created() {
+                {#axios.get('{% url 'user_data_xios' pk %}')#}
+                {#    .then(response => {#}
+                {#        this.questions = response.data#}
+                {#        console.log('data is : ', this.questions)#}
+                {#    })#}
+                {#    .catch(error => {#}
+                {#        console.log(error)#}
+                {#    })#}
+            },
+
+        })
+    </script>
+
+
+{% endblock %}
