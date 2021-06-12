@@ -26,9 +26,9 @@ body {
     font-size: 1.5rem;
 }
 
-.dropdown-menu{
-    transition: color 0s ease 0s, background-color 0s ease 0s;
-}
+/*.dropdown-menu{*/
+/*    transition: color 0s ease 0s, background-color 0s ease 0s;*/
+/*}*/
 .card {
     padding: 15px;
     background-color: #fdfdfd;

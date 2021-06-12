@@ -2,9 +2,7 @@
 {% load static %}
 {% block content %}
 
-    <div id="app">
-
-
+    <div id="evaluationApplication">
         <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
             <li class="nav-item" role="presentation" v-for="xtab in tabs">
                 <button
@@ -47,8 +45,8 @@
 
     <script>
 
-        const app = new Vue({
-            el: '#app',
+        const evaluationApplication = new Vue({
+            el: '#evaluationApplication',
             delimiters: ['[[', ']]'],
             data: {
 

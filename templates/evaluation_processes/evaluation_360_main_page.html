@@ -2,10 +2,10 @@
 {% load static %}
 {% block content %}
 
-    <div id="evaluationApplication">
+    <div id="evaluationPage">
 
         <div class="row mt-5">
-            <div class="col-3 mb-5" v-for="member in teamMembers" v-if="member.filled === false">
+            <div class="col-lg-4 col-md-4  col-sm-12  mb-5" v-for="member in teamMembers" v-if="member.filled === false">
                 <div class="card text-center" style="width: 16.5rem;height: 22rem;">
                     <img src="{% static 'img/person.png' %}" class=" user-pic" alt="..." >
 
@@ -25,8 +25,8 @@
 
     <script>
 
-        const evaluationApplication = new Vue({
-            el: '#evaluationApplication',
+        const evaluationPage = new Vue({
+            el: '#evaluationPage',
             delimiters: ['[[', ']]'],
             data: {
 

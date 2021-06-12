@@ -1,97 +1,61 @@
-<div id="v-header">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container my-3 px-5">
-            <a class="navbar-brand" href="#"><strong>See</strong></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                    <li v-for="nav in navs" class="nav-item">
-                        <a
-                                v-if="nav.dropdownMenu == null"
-                                class="nav-link "
-                                aria-current="page"
-                                :href="nav.link"
-                                :key="nav.key"
-                                @click="navSelect(key)"
-                        >[[nav.label]]</a>
-
-                        <div v-else>
-                            <a class="nav-link dropdown-toggle" :href="nav.link" id="actionDropdown" role="button"
-                               data-bs-toggle="dropdown" aria-expanded="false">
-                                [[nav.label]]
-                            </a>
-
-                            <ul class="dropdown-menu" aria-labelledby="actionDropdown">
-                                <li v-for="item in nav.dropdownMenu">
-                                    <a class="dropdown-item" href="item.link">[[item.label]]</a>
-                                </li>
-
-                            </ul>
-                        </div>
-
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container my-3 px-5">
+        <a class="navbar-brand" href="#"><strong>See</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/' %}active {% endif %}"
+                       aria-current="page"
+                       href="{% url 'evaluation_home_page' %}">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/evaluation-360/' %}active {% endif %}"
+                           aria-current="page" href="{% url 'evaluation_360' %}">360 evaluation</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/self-evaluation/' %}active {% endif %} "
+                           aria-current="page" href="{% url 'self_evaluation' %}">Self evaluation</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link {% if request.path == '/actions/' %}active {% endif %} dropdown-toggle"
+                           href="#" id="actionDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Actions
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="actionDropdown">
+                            <li><a class="dropdown-item" href="#">Create new team</a></li>
+                            <li><a class="dropdown-item" href="#">Start the evaluation cycle</a></li>
+                            <li><a class="dropdown-item" href="#">Add team leader</a></li>
+
+                        </ul>
+                    </li>
+                {% endif %}
+
+            </ul>
 
 
-                </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/logout/' %}active {% endif %} "
+                           aria-current="page" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'login' in request.path %}active {% endif %} "
+                           aria-current="page" href="{% url 'login' %}">Login</a>
+                    </li>
+                {% endif %}
 
-            </div>
+
+            </ul>
+
         </div>
-    </nav>
-</div>
-
-
-<script>
-
-    const app = new Vue({
-        el: '#v-header',
-        delimiters: ['[[', ']]'],
-        data: {
-
-            navs: [
-                {
-                    key: 1,
-                    label: 'Home',
-                    link: '{% url 'evaluation_home_page' %}'
-                },
-                {
-                    key: 2,
-                    label: '360 Evaluation',
-                    link: '{% url 'evaluation_360' %}'
-                },
-                {
-                    key: 3,
-                    label: 'Self Evaluation',
-                    link: '{% url 'self_evaluation' %}'
-                },
-                {
-                    key: 4,
-                    label: 'Actions',
-                    link: '#',
-                    dropdownMenu: [
-                        {
-                            key: 1,
-                            label: 'self_evaluation',
-                            link: '{% url 'evaluation_home_page' %}'
-                        },
-                    ]
-                },
-
-            ]
-        },
-        methods:{
-            navSelect(key){
-                currentPath = {{request.path}}
-                this.navs.forEach(function (nav){
-
-                })
-            }
-        }
-    })
-</script>
-
+    </div>
+</nav>
