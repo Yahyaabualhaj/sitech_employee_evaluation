@@ -9,9 +9,14 @@ def home(request):
     return render(request, 'evaluation_processes/home.html')
 
 
+def evaluation_dashboard(request):
+    return render(request, 'evaluation_processes/evaluation_dashboard.html')
+
+
 @login_required
 def evaluation_360_application(request):
     return render(request, 'evaluation_processes/evaluation_360_application.html')
+
 
 @login_required
 def evaluation_360(request):
