@@ -66,14 +66,14 @@ def login_view(request):
     if user is not None:
         login(request, user)
         # Redirect to a success page.
-        return redirect(reverse('evaluation_home_page'))
+        return redirect(reverse('evaluation_dashboard'))
 
     return render(request, 'accounts/login.html')
 
 
 def logout_view(request):
     logout(request)
-    return redirect('evaluation_home_page')
+    return redirect('home')
 
 
 def dashboard(request):

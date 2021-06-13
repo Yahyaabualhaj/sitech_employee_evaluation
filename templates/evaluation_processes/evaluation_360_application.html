@@ -3,37 +3,47 @@
 {% block content %}
 
     <div id="evaluationApplication">
-        <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation" v-for="xtab in tabs">
-                <button
-                        :class="'nav-link ' + xtab.tabActivated "
-                        :id="xtab.name + '-tab'"
-                        data-bs-toggle="tab"
-                        :data-bs-target="'#' + xtab.name"
-                        type="button"
-                        role="tab"
-                        :aria-controls="xtab.name"
-                        aria-selected="true">
-                    [[xtab.text]]
-                </button>
-            </li>
-        </ul>
+        <div class=" row ">
+            <div class="col-2 offset-11 mt-5">
+                <button type="button" class="btn btn-primary btn-md">Submit</button>
+            </div>
 
-        <div class="tab-content " id="myTabContent">
-            <div
-                    v-for="xtab in tabs"
-                    :class=" 'tab-pane fade  ' + xtab.active "
-                    :id="xtab.name"
-                    role="tabpanel"
-                    :aria-labelledby=" xtab.name + '-tab'"
+        </div>
 
-            >
+        <div class="row">
+            <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation" v-for="xtab in tabs">
+                    <button
+                            :class="'nav-link ' + xtab.tabActivated "
+                            :id="xtab.name + '-tab'"
+                            data-bs-toggle="tab"
+                            :data-bs-target="'#' + xtab.name"
+                            type="button"
+                            role="tab"
+                            :aria-controls="xtab.name"
+                            aria-selected="true">
+                        [[xtab.text]]
+                    </button>
+                </li>
 
-                <h6 class="text-center my-3" style="color:green;">[[xtab.description]]</h6>
-                <div class="col mt-5" v-for='question in xtab.questions'>
-                    <radio-select-field :field-data="question"></radio-select-field>
-                    <br>
-                    <hr>
+            </ul>
+
+            <div class="tab-content " id="myTabContent">
+                <div
+                        v-for="xtab in tabs"
+                        :class=" 'tab-pane fade  ' + xtab.active "
+                        :id="xtab.name"
+                        role="tabpanel"
+                        :aria-labelledby=" xtab.name + '-tab'"
+
+                >
+
+                    <h6 class="text-center my-3" style="color:green;">[[xtab.description]]</h6>
+                    <div class="col mt-5" v-for='question in xtab.questions'>
+                        <radio-select-field :field-data="question"></radio-select-field>
+                        <br>
+                        <hr>
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,7 +186,7 @@
                         active: '',
                         tabActivated: '',
                         questions: [
-                           {
+                            {
                                 id: 1,
                                 name: 'Team member does not blame people or make excuses but mostly adopts a constructive view about  ?',
                                 value: null,
@@ -309,14 +319,14 @@
 
             },
             created() {
-                {#axios.get('{% url 'user_data_xios' pk %}')#}
-                {#    .then(response => {#}
-                {#        this.questions = response.data#}
-                {#        console.log('data is : ', this.questions)#}
-                {#    })#}
-                {#    .catch(error => {#}
-                {#        console.log(error)#}
-                {#    })#}
+                axios.get('{% url 'user_data_xios' pk %}')
+                    .then(response => {
+                        this.questions = response.data
+                        console.log('data is : ', this.questions)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
             },
 
         })

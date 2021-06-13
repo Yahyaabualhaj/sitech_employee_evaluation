@@ -8,12 +8,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/' %}active {% endif %}"
-                       aria-current="page"
-                       href="{% url 'evaluation_home_page' %}">Home</a>
-                </li>
+
                 {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'evaluation_dashboard' in request.path %}active {% endif %}"
+                           aria-current="page"
+                           href="{% url 'evaluation_dashboard' %}">Dashboard</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/evaluation-360/' %}active {% endif %}"
                            aria-current="page" href="{% url 'evaluation_360' %}">360 evaluation</a>
@@ -35,6 +36,23 @@
 
                         </ul>
                     </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link {% if request.path == '/actions/' %}active {% endif %} dropdown-toggle"
+                           href="#" id="actionDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Manager Tools
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="actionDropdown">
+                            <li><a class="dropdown-item" href="#">Finalize Evaluation</a></li>
+                            <li><a class="dropdown-item" href="#">Add Comments</a></li>
+
+
+                        </ul>
+                    </li>
+
+
                 {% endif %}
 
             </ul>
