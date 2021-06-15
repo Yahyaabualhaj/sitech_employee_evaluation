@@ -1,4 +1,4 @@
-{% extends "evaluation_processes/layout/layout.html" %}
+{% extends "layout/layout.html" %}
 {% load static %}
 {% block content %}
 
@@ -59,7 +59,6 @@
             el: '#evaluationApplication',
             delimiters: ['[[', ']]'],
             data: {
-
                 tabs: [
                     {
                         name: 'communication',
@@ -315,21 +314,19 @@
                         tabActivated: '',
                     },
                 ]
-
-
             },
             created() {
-                axios.get('{% url 'user_data_xios' pk %}')
-                    .then(response => {
-                        this.questions = response.data
-                        console.log('data is : ', this.questions)
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    })
-            },
-
+                    {#axios.get('{% url 'user_data_xios' pk %}')#}
+                {#    .then(response => {#}
+                {#        this.questions = response.data#}
+                {#        console.log('data is : ', this.questions)#}
+                {#    })#}
+                {#    .catch(error => {#}
+                {#        console.log(error)#}
+                {#    })#}
+            }
         })
+
     </script>
 
 
