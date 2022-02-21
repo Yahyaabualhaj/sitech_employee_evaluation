@@ -1,21 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17df3660-c64a-47cb-a303-d8122be68f03" name="Default Changelist" comment="">
+    <list default="true" id="204a76d8-247e-4f4c-b8ad-4dcdf2d791f6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/evaluation_processes/helper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation_processes/migrations/0002_auto_20211129_0853.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation_processes/migrations/0003_auto_20211130_1111.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/evaluation_processes/migrations/0004_auto_20211205_2258.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_processes/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_processes/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation_processes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_processes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation_processes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_processes/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/accounts/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/vuejs2/components/form.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/vuejs2/components/form.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_application.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_application.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_main_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/layout/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/layout/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/self_evaluation.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/self_evaluation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout/layout.html" afterDir="false" />
+    </list>
+    <list id="a35ff98f-a3bf-4b0f-992e-db7fabed64d9" name="django_cms" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout/footer.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,16 +59,24 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/accounts/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_main_page.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/static/css/style.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/templates/layout/layout.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/templates/accounts/login.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templates/base.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/evaluation_processes/views.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/templates/layout/header.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/evaluation_processes/urls.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/accounts/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/accounts/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/evaluation_processes/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/layout/layout.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/evaluation_processes/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/layout/header.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/accounts/login.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/templates/evaluation_processes/home.html">
+      <ranges>
+        <range start1="2" end1="2" start2="2" end2="3" changelist="a35ff98f-a3bf-4b0f-992e-db7fabed64d9" />
+        <range start1="3" end1="4" start2="4" end2="5" changelist="204a76d8-247e-4f4c-b8ad-4dcdf2d791f6" />
+      </ranges>
+    </file>
   </component>
   <component name="ProjectId" id="1t3gQjb9ldng5AE5oQ1gCI4Sjyy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -122,7 +137,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17df3660-c64a-47cb-a303-d8122be68f03" name="Default Changelist" comment="" />
+      <changelist id="204a76d8-247e-4f4c-b8ad-4dcdf2d791f6" name="Changes" comment="" />
       <created>1622003173177</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -143,6 +158,9 @@
       <workItem from="1623583840383" duration="10000" />
       <workItem from="1623678651616" duration="1373000" />
       <workItem from="1623739625862" duration="453000" />
+      <workItem from="1638954143683" duration="593000" />
+      <workItem from="1638961827592" duration="11000" />
+      <workItem from="1645440813948" duration="9745000" />
     </task>
     <task id="LOCAL-00001" summary="build the foundation of the project">
       <created>1622529417953</created>
@@ -163,6 +181,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="build the foundation of the project" />
