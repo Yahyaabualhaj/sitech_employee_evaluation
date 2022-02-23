@@ -61,6 +61,9 @@ class Evaluation360(models.Model):
     answer = models.CharField(max_length=255, null=False, blank=False)
     evaluation_360_manager = models.ForeignKey('Evaluation360Manager', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'Q-{self.question.id} answered? {self.answer} || C: {self.evaluation_360_manager.cycle}'
+
 
 class Question(models.Model):
     evaluation_type = models.CharField(

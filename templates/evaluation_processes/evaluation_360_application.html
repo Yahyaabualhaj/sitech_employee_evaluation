@@ -113,6 +113,8 @@
                         if (!success){
                             console.log('Error is  : ', response.data.error)
                             this.error = response.data.error
+                        }else{
+                            location.href = "{% url 'evaluation_360' %}";
                         }
 
                         console.log('data is : ', response.data)

@@ -43,22 +43,34 @@ def evaluation_360(request):
 def get_teammates(request):
     teams_ids = list(TeamMember.objects.filter(user=request.user).values_list('team_id', flat=True))
 
+    # Get all team members 
     members = list(
         TeamMember.objects.filter(team_id__in=teams_ids).values_list('user__id', flat=True).exclude(user=request.user)
     )
+
     members_ids = list(dict.fromkeys(members))
 
     teammates = User.objects.filter(id__in=members_ids).values('id', 'first_name', 'last_name')
+    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
+    print('teammates')
+    print(teammates)
+    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
 
     teammates = [
         {
             'id': teammate['id'],
             'firstName': teammate['first_name'],
             'lastName': teammate['last_name'],
-            'teammateHref': str(reverse('evaluation_360_application', args=(teammate['id'],)))
+            'teammateHref': str(reverse('evaluation_360_application', args=(teammate['id'],))),
+            'is_evaluated': False
         }
         for teammate in teammates
     ]
+
+    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
+    print('After .... teammates')
+    print(teammates)
+    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
 
     return JsonResponse(
         {
@@ -119,6 +131,7 @@ def get_evaluation_application(request):
 
 
 @csrf_exempt
+@login_required
 def post_evaluation_application(request):
     answer_questions = []
     if request.method == 'POST':
@@ -129,16 +142,19 @@ def post_evaluation_application(request):
 
         # Check if there is a evaluation cycle.
         active_cycle = EvaluationCycle.objects.filter(is_active=True).first()
+        evaluator = Employee.objects.get(user=request.user)  # the logged in user of did the evaluation.
         if active_cycle:
             evaluation_360_manager = Evaluation360Manager.objects.create(
                 cycle=active_cycle,
-                evaluated_by=Employee.objects.get(user_id=team_member_id),
+                evaluated_by=Employee.objects.get(user_id=team_member_id),  # the member who was evaluated .
+                employee=evaluator
             )
 
+            # Start collect the answers tab after tab.
             for tab in tabs:
-                questions = tab['questions']
+                questions = tab['questions']  # Get all questions related to specific tab.
                 for question in questions:
-                    print('The question is : ', question)
+
                     if question.get('value') is not None:
 
                         Evaluation360.objects.create(
