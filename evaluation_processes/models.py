@@ -31,7 +31,6 @@ class Employee(models.Model):
     education_level = models.CharField(max_length=255, null=False, blank=False)
     role = models.CharField(max_length=255, null=False, blank=False)
     join_date = models.DateField()
-    evaluation_360_manager = models.ForeignKey('Evaluation360Manager', on_delete=models.CASCADE, null=True, blank=True)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
@@ -49,11 +48,21 @@ class EvaluationCycle(models.Model):
 
 class Evaluation360Manager(models.Model):
     cycle = models.ForeignKey('EvaluationCycle', on_delete=models.CASCADE)
-    evaluated_by = models.ForeignKey('Employee', on_delete=models.CASCADE)
-    # evaluation_360 = models.ForeignKey('Evaluation360', on_delete=models.CASCADE)
+    evaluated_member = models.ForeignKey(
+        'Employee',
+        db_column='evaluated_member',
+        related_name='evaluation_processes_%(class)s_evaluated_member',
+        on_delete=models.CASCADE
+    )  # The employee/member who evaluated.
+    evaluated_by = models.ForeignKey(
+        'Employee',
+        db_column='created_by',
+        related_name='evaluation_processes_%(class)s_evaluated_by',
+        on_delete=models.CASCADE
+    )  # The Employee/member who did the evaluation (logged in user).
 
     def __str__(self):
-        return f'Quarter-{self.cycle.quarter} of {self.cycle.year} from {self.evaluated_by.user.get_full_name()}'
+        return f'Quarter-{self.cycle.quarter} of {self.cycle.year} || from: {self.evaluated_by.user.get_full_name()} | to: {self.evaluated_member.user.get_full_name()}'
 
 
 class Evaluation360(models.Model):

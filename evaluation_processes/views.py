@@ -11,15 +11,29 @@ from django.urls import reverse
 
 
 def home(request):
+    """
+    Home page.
+    """
+
     return render(request, 'evaluation_processes/home.html')
 
 
+@login_required
 def evaluation_dashboard(request):
+    """
+    Evaluation dashboard to display all required notifications and performance graphs for employee.
+    """
     return render(request, 'evaluation_processes/evaluation_dashboard.html')
 
 
 @login_required
 def evaluation_360_application(request, team_member_id):
+    """
+    To render the vue.js page to display 360 evaluation form/application.
+
+    Args:
+        team_member_id(str): The team member who will evaluated from logged in user.
+    """
     return render(
         request,
         'evaluation_processes/evaluation_360_application.html',
@@ -32,6 +46,9 @@ def evaluation_360_application(request, team_member_id):
 
 @login_required
 def evaluation_360(request):
+    """
+    To render the vue.js page to display the team members that you can evaluate them.
+    """
     return render(
         request,
         'evaluation_processes/evaluation_360_main_page.html',
@@ -41,6 +58,11 @@ def evaluation_360(request):
 
 @login_required
 def get_teammates(request):
+    """
+    Get all team members who will evaluated by logged in user  to use with (Vue.js).
+    
+    Returns: Json data
+    """
     teams_ids = list(TeamMember.objects.filter(user=request.user).values_list('team_id', flat=True))
 
     # Get all team members 
@@ -51,26 +73,20 @@ def get_teammates(request):
     members_ids = list(dict.fromkeys(members))
 
     teammates = User.objects.filter(id__in=members_ids).values('id', 'first_name', 'last_name')
-    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
-    print('teammates')
-    print(teammates)
-    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
-
     teammates = [
         {
             'id': teammate['id'],
             'firstName': teammate['first_name'],
             'lastName': teammate['last_name'],
             'teammateHref': str(reverse('evaluation_360_application', args=(teammate['id'],))),
-            'is_evaluated': False
+            'is_evaluated': Evaluation360Manager.objects.filter(
+                evaluated_member__user_id=teammate['id'],
+                evaluated_by__user_id=request.user.id,
+
+            ).exists(),
         }
         for teammate in teammates
     ]
-
-    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
-    print('After .... teammates')
-    print(teammates)
-    print('EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE')
 
     return JsonResponse(
         {
@@ -81,11 +97,19 @@ def get_teammates(request):
 
 
 def self_evaluation(request):
+    """
+    Self evaluation form page.
+    """
     return render(request, 'evaluation_processes/self_evaluation.html')
 
 
 @login_required
 def get_evaluation_application(request):
+    """
+    Get all evaluation question to build the evaluation application to use with (Vue.js).
+    
+    Returns: Json data.
+    """
     tabs = []
     if request.method == 'GET':
 
@@ -133,6 +157,12 @@ def get_evaluation_application(request):
 @csrf_exempt
 @login_required
 def post_evaluation_application(request):
+    """
+    Receive (from Vue.js) the answered evaluation form and save in DB.
+    
+    Returns:
+        team_member_id(str): The team member who will evaluated.
+    """
     answer_questions = []
     if request.method == 'POST':
         body_unicode = request.body.decode('utf-8')
@@ -142,12 +172,14 @@ def post_evaluation_application(request):
 
         # Check if there is a evaluation cycle.
         active_cycle = EvaluationCycle.objects.filter(is_active=True).first()
-        evaluator = Employee.objects.get(user=request.user)  # the logged in user of did the evaluation.
+        evaluated_by = Employee.objects.filter(user=request.user).first()  # the logged in user of did the evaluation.
+        evaluated_member = Employee.objects.get(pk=team_member_id)  # the member who was evaluated.
+
         if active_cycle:
-            evaluation_360_manager = Evaluation360Manager.objects.create(
+            evaluation_360_manager, __ = Evaluation360Manager.objects.get_or_create(
+                evaluated_member=evaluated_member,
+                evaluated_by=evaluated_by,
                 cycle=active_cycle,
-                evaluated_by=Employee.objects.get(user_id=team_member_id),  # the member who was evaluated .
-                employee=evaluator
             )
 
             # Start collect the answers tab after tab.

@@ -4,17 +4,20 @@
 
 <div id="evaluationApplication">
     <div class="row  ">
-        <div class=" col-2  mt-5">
-            <button type="button"
-                    class="btn btn-primary btn-md"
-                    v-on:click="submitThe360Application"
-            >Submit</button>
+        <div class=" col-2 offset-10 mt-5">
+            <button
+                type="button"
+                class="btn btn-primary btn-md"
+                v-on:click="submitThe360Application"
+            >
+                Submit
+            </button>
         </div>
 
     </div>
     <div class="row " v-if="error">
         <div class=" col-12 alert alert-danger mt-3 mx-2" role="alert">
-            the form is not submitted because There is/are not answer question/s
+            The form is not submitted because There is/are not answered question/s
         </div>
     </div>
 
@@ -73,7 +76,7 @@
         data: {
             tabs: [],
             userId: '',
-            error:'',
+            error: '',
         },
         created() {
             axios.get("{% url  'get_evaluation_application'  %}"
@@ -109,11 +112,11 @@
                     }
                 )
                     .then(response => {
-                       const success =  response.data.success
-                        if (!success){
+                        const success = response.data.success
+                        if (!success) {
                             console.log('Error is  : ', response.data.error)
                             this.error = response.data.error
-                        }else{
+                        } else {
                             location.href = "{% url 'evaluation_360' %}";
                         }
 
