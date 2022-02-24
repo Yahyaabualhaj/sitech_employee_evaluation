@@ -1,0 +1,58 @@
+[
+{
+    "model": "evaluation_processes.questioncategory",
+    "pk": 1,
+    "fields": {
+        "name": "Communication",
+        "description": "Ability and willingness to Communicate effectively"
+    }
+},
+{
+    "model": "evaluation_processes.questioncategory",
+    "pk": 2,
+    "fields": {
+        "name": "Collaboration and Teamwork",
+        "description": "Ability and desire to help others and to identify areas where collaboration is needed"
+    }
+},
+{
+    "model": "evaluation_processes.questioncategory",
+    "pk": 3,
+    "fields": {
+        "name": "Problems Solving and Decision Making",
+        "description": "Ability to identify problems and to collect information to make informed decisions and to overcome difficulties"
+    }
+},
+{
+    "model": "evaluation_processes.questioncategory",
+    "pk": 4,
+    "fields": {
+        "name": "Execution",
+        "description": "Ability to complete assigned work within the expected time. Ability to look for better ways to do things"
+    }
+},
+{
+    "model": "evaluation_processes.questioncategory",
+    "pk": 5,
+    "fields": {
+        "name": "Motivation and Initiative",
+        "description": "Ability and willingness to contribute more and in different ways"
+    }
+},
+{
+    "model": "evaluation_processes.questioncategory",
+    "pk": 6,
+    "fields": {
+        "name": "Leadership",
+        "description": "Ability to exhibit leadership qualities in the roles he / she plays"
+    }
+},
+{
+    "model": "evaluation_processes.questioncategory",
+    "pk": 7,
+    "fields": {
+        "name": "Additional Comments and Feedback",
+        "description": "Additional Comments and Feedback"
+    }
+}
+]

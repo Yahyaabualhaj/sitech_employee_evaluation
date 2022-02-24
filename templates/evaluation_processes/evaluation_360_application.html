@@ -1,336 +1,137 @@
-{% extends "evaluation_processes/layout/layout.html" %}
+{% extends "layout/layout.html" %}
 {% load static %}
 {% block content %}
 
-    <div id="evaluationApplication">
-        <div class=" row ">
-            <div class="col-2 offset-11 mt-5">
-                <button type="button" class="btn btn-primary btn-md">Submit</button>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation" v-for="xtab in tabs">
-                    <button
-                            :class="'nav-link ' + xtab.tabActivated "
-                            :id="xtab.name + '-tab'"
-                            data-bs-toggle="tab"
-                            :data-bs-target="'#' + xtab.name"
-                            type="button"
-                            role="tab"
-                            :aria-controls="xtab.name"
-                            aria-selected="true">
-                        [[xtab.text]]
-                    </button>
-                </li>
-
-            </ul>
-
-            <div class="tab-content " id="myTabContent">
-                <div
-                        v-for="xtab in tabs"
-                        :class=" 'tab-pane fade  ' + xtab.active "
-                        :id="xtab.name"
-                        role="tabpanel"
-                        :aria-labelledby=" xtab.name + '-tab'"
-
-                >
-
-                    <h6 class="text-center my-3" style="color:green;">[[xtab.description]]</h6>
-                    <div class="col mt-5" v-for='question in xtab.questions'>
-                        <radio-select-field :field-data="question"></radio-select-field>
-                        <br>
-                        <hr>
-                    </div>
-                </div>
-            </div>
+<div id="evaluationApplication">
+    <div class="row  ">
+        <div class=" col-2 offset-10 mt-5">
+            <button
+                type="button"
+                class="btn btn-primary btn-md"
+                v-on:click="submitThe360Application"
+            >
+                Submit
+            </button>
         </div>
 
     </div>
+    <div class="row " v-if="error">
+        <div class=" col-12 alert alert-danger mt-3 mx-2" role="alert">
+            The form is not submitted because There is/are not answered question/s
+        </div>
+    </div>
+
+    <div class="row">
+        <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation" v-for="xtab in tabs">
+                <button
+                    :class="'nav-link ' + xtab.tabActivated "
+                    :id="xtab.name + '-tab'"
+                    data-bs-toggle="tab"
+                    :data-bs-target="'#' + xtab.name"
+                    type="button"
+                    role="tab"
+                    :aria-controls="xtab.name"
+                    aria-selected="true">
+                    [[xtab.text]]
+                </button>
+            </li>
+
+        </ul>
+
+        <div class="tab-content " id="myTabContent">
+            <div
+                v-for="xtab in tabs"
+                :class=" 'tab-pane fade  ' + xtab.active "
+                :id="xtab.name"
+                role="tabpanel"
+                :aria-labelledby=" xtab.name + '-tab'"
+
+            >
+
+                <h6 class="text-center my-3" style="color:green;">[[xtab.description]]</h6>
+                <div class="col mt-5" v-for='question in xtab.questions'>
+                    <radio-select-field :field-data="question"
+                                        v-if="question.questionType == 'Multiple_Choice'"></radio-select-field>
+
+                    <input-field :field-data="question"
+                                 v-else="question.questionType == 'Multiple_Choice'"></input-field>
+                    <br>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
-    <script src="{% static 'js/vuejs2/components/form.js' %}" charset="utf-8"></script>
+<script src="{% static 'js/vuejs2/components/form.js' %}" charset="utf-8"></script>
 
-    <script>
+<script>
 
-        const evaluationApplication = new Vue({
-            el: '#evaluationApplication',
-            delimiters: ['[[', ']]'],
-            data: {
+    const evaluationApplication = new Vue({
+        el: '#evaluationApplication',
+        delimiters: ['[[', ']]'],
+        data: {
+            tabs: [],
+            userId: '',
+            error: '',
+        },
+        created() {
+            axios.get("{% url  'get_evaluation_application'  %}"
+            )
+                .then(response => {
+                    this.questions = response.data
+                    this.userId = response.data.userId
+                    this.tabs = response.data.tabs
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+        methods: {
+            submitThe360Application: function (event) {
+                console.log('the submit button is clicked ', this.tabs[0].questions[0].value)
 
-                tabs: [
+                console.log('the url is : ', "{% url 'post_evaluation_application'   %}"
+                )
+
+                axios(
                     {
-                        name: 'communication',
-                        text: 'Communication',
-                        description: 'Ability and willingness to Communicate effectively',
-                        active: 'show active',
-                        tabActivated: 'active',
-                        questions: [
-                            {
-                                id: 1,
-                                name: 'Team member makes an effort for an open, honest, and complete dialog. He / she listens well, and is  ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                            {
-                                id: 2,
-                                name: 'Team member communicates the needed information and makes them clear, keeps you updated about ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                            {
-                                id: 3,
-                                name: 'Team member understands and respects your thoughts and feelings, even if he / she doesnt agree  ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
+                        method: 'post',
+                        url: "{% url 'post_evaluation_application' %}",
+                        headers: {
+                            'Content-type': 'application/json'
+                        },
+                        data: {
+                            tabs: this.tabs,
+                            teamMemberId: '{{team_member_id}}'
 
-                            {
-                                id: 4,
-                                name: 'Rather than winning arguments, team member is focused on getting a better answer / understanding ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-
-                        ],
-                    },
-                    {
-                        name: 'collaborationAndTeamwork',
-                        text: 'Collaboration and Teamwork',
-                        description: 'Ability and desire to help others and to identify areas where collaboration is needed',
-                        active: '',
-                        tabActivated: '',
-                        questions: [
-                            {
-                                id: 1,
-                                name: 'Team member is a key contributor to the teams success, he / she puts aside own ego when it comes ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                            {
-                                id: 2,
-                                name: 'Team member shares knowledge and experience with other team members ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                            {
-                                id: 3,
-                                name: 'Team member is ready to support other team members when needed ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                        ],
-                    },
-                    {
-                        name: 'problemSolvingAndDecisionMaking',
-                        text: 'Problems Solving and Decision Making',
-                        description: 'Ability to identify problems and to collect information to make informed decisions and to overcome difficulties',
-                        active: '',
-                        tabActivated: '',
-                        questions: [
-                            {
-                                id: 1,
-                                name: 'Team member does not blame people or make excuses but mostly adopts a constructive view about  ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                        ],
-                    },
-                    {
-                        name: 'execution',
-                        text: 'Execution',
-                        description: 'Ability to complete assigned work within the expected time. Ability to look for better ways to do things',
-                        active: '',
-                        tabActivated: '',
-                        questions: [
-                            {
-                                name: 'Team member makes an effort for an open, honest, and complete dialog. He / she listens well, and is g ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                            {
-                                name: 'Team member communicates the needed information and makes them clear, keeps you updated abo',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                        ],
-                    },
-                    {
-                        name: 'motivationAndInitiative',
-                        text: 'Motivation and Initiative',
-                        description: 'Ability and willingness to contribute more and in different ways',
-                        active: '',
-                        tabActivated: '',
-                        questions: [
-                            {
-                                name: 'Team member makes an effort for an open, honest, and complete dialog. He / she listens well, and is g ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                            {
-                                name: 'Team member communicates the needed information and makes them clear, keeps you updated abo',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                        ],
-                    },
-                    {
-                        name: 'leadership',
-                        text: 'Leadership',
-                        description: 'Ability to exhibit leadership qualities in the roles he / she plays',
-                        active: '',
-                        tabActivated: '',
-                        questions: [
-                            {
-                                name: 'Team member makes an effort for an open, honest, and complete dialog. He / she listens well, and is g ?',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                            {
-                                name: 'Team member communicates the needed information and makes them clear, keeps you updated abo',
-                                value: null,
-                                choices: [
-                                    {'key': 1, 'name': 'Always'},
-                                    {'key': 2, 'name': 'Frequently'},
-                                    {'key': 3, 'name': 'Sometimes'},
-                                    {'key': 4, 'name': 'Rarely'},
-                                    {'key': 5, 'name': 'Never'},
-                                ],
-                                disabled: false,
-                                required: true
-                            },
-                        ],
-                    },
-                    {
-                        name: 'additionalCommentsAndFeedback',
-                        text: 'Additional Comments and Feedback',
-                        description: '',
-                        active: '',
-                        tabActivated: '',
-                    },
-                ]
-
-
-            },
-            created() {
-                axios.get('{% url 'user_data_xios' pk %}')
+                        },
+                    }
+                )
                     .then(response => {
-                        this.questions = response.data
-                        console.log('data is : ', this.questions)
+                        const success = response.data.success
+                        if (!success) {
+                            console.log('Error is  : ', response.data.error)
+                            this.error = response.data.error
+                        } else {
+                            location.href = "{% url 'evaluation_360' %}";
+                        }
+
+                        console.log('data is : ', response.data)
                     })
                     .catch(error => {
                         console.log(error)
                     })
-            },
 
-        })
-    </script>
+
+            }
+        }
+    })
+
+</script>
 
 
 {% endblock %}

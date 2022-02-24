@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="17df3660-c64a-47cb-a303-d8122be68f03" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_dashboard.html" afterDir="false" />
+    <list default="true" id="204a76d8-247e-4f4c-b8ad-4dcdf2d791f6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/evaluation_processes/migrations/0002_auto_20220223_0821.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/evaluation_processes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_processes/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/migrations/0002_auto_20211129_0853.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/migrations/0003_auto_20211130_1111.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/migrations/0004_auto_20211205_2258.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/migrations/0005_auto_20211205_2303.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/migrations/0006_auto_20211205_2311.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/migrations/0007_auto_20211205_2320.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/migrations/0008_alter_evaluation360_answer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/evaluation_processes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_processes/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/evaluation_processes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/evaluation_processes/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/project/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_application.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_application.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/layout/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/layout/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_main_page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -28,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="SEE-003_connect_vujes_with_DB" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,6 +51,25 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_main_page.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/evaluation_processes/evaluation_360_application.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/evaluation_processes/admin.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/evaluation_processes/models.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/accounts/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/accounts/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/evaluation_processes/views.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/evaluation_processes/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/static/css/style.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/base.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/layout/layout.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/layout/header.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/layout/footer.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/project/urls.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/project/settings.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/accounts/login.html" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templates/evaluation_processes/home.html" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1t3gQjb9ldng5AE5oQ1gCI4Sjyy" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -52,7 +81,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/evaluation_processes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/env/lib/python3.8" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -65,6 +94,7 @@
       <recent name="C:\Users\aqsa\PycharmProjects\sitech_employee_evaluation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aqsa\PycharmProjects\sitech_employee_evaluation\templates" />
       <recent name="C:\Users\aqsa\PycharmProjects\sitech_employee_evaluation" />
       <recent name="C:\Users\aqsa\PycharmProjects\sitech_employee_evaluation\project" />
       <recent name="C:\Users\aqsa\PycharmProjects\sitech_employee_evaluation\project\static\js\vuejs2\components" />
@@ -99,7 +129,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="17df3660-c64a-47cb-a303-d8122be68f03" name="Default Changelist" comment="" />
+      <changelist id="204a76d8-247e-4f4c-b8ad-4dcdf2d791f6" name="Changes" comment="" />
       <created>1622003173177</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -117,6 +147,16 @@
       <workItem from="1623508993951" duration="8064000" />
       <workItem from="1623556203979" duration="599000" />
       <workItem from="1623570313426" duration="604000" />
+      <workItem from="1623583840383" duration="10000" />
+      <workItem from="1623678651616" duration="1373000" />
+      <workItem from="1623739625862" duration="453000" />
+      <workItem from="1638954143683" duration="593000" />
+      <workItem from="1638961827592" duration="11000" />
+      <workItem from="1645440813948" duration="9818000" />
+      <workItem from="1645539736896" duration="4243000" />
+      <workItem from="1645596348728" duration="20674000" />
+      <workItem from="1645689238369" duration="259000" />
+      <workItem from="1645701338978" duration="1572000" />
     </task>
     <task id="LOCAL-00001" summary="build the foundation of the project">
       <created>1622529417953</created>
@@ -132,15 +172,43 @@
       <option name="project" value="LOCAL" />
       <updated>1623516319949</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="50% preparation for demo">
+      <created>1645457163065</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1645457163065</updated>
+    </task>
+    <task id="LOCAL-00004" summary="save copy of preparation for demo, but it is not complete">
+      <created>1645603210234</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1645603210234</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="build the foundation of the project" />
     <MESSAGE value="building login logout" />
-    <option name="LAST_COMMIT_MESSAGE" value="building login logout" />
+    <MESSAGE value="50% preparation for demo" />
+    <MESSAGE value="save copy of preparation for demo, but it is not complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="save copy of preparation for demo, but it is not complete" />
   </component>
 </project>

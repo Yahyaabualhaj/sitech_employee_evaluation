@@ -1,0 +1,42 @@
+[
+{
+    "model": "evaluation_processes.questionchoices",
+    "pk": 1,
+    "fields": {
+        "text": "Always",
+        "weight": 5
+    }
+},
+{
+    "model": "evaluation_processes.questionchoices",
+    "pk": 2,
+    "fields": {
+        "text": "Frequently",
+        "weight": 4
+    }
+},
+{
+    "model": "evaluation_processes.questionchoices",
+    "pk": 3,
+    "fields": {
+        "text": "Sometimes",
+        "weight": 3
+    }
+},
+{
+    "model": "evaluation_processes.questionchoices",
+    "pk": 4,
+    "fields": {
+        "text": "Rarely",
+        "weight": 2
+    }
+},
+{
+    "model": "evaluation_processes.questionchoices",
+    "pk": 5,
+    "fields": {
+        "text": "Never",
+        "weight": 1
+    }
+}
+]

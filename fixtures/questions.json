@@ -1,0 +1,290 @@
+[
+{
+    "model": "evaluation_processes.question",
+    "pk": 1,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 1,
+        "text": "Team member makes an effort for an open, honest, and complete dialog. He / she listens well, and is genuinely engaged in the conversations with you?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 2,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 1,
+        "text": "Team member communicates the needed information and makes them clear, keeps you updated about progress and any changes?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 3,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 1,
+        "text": "Team member understands and respects your thoughts and feelings, even if he / she doesn't agree with you?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 4,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 1,
+        "text": "Rather than winning arguments, team member is focused on getting a better answer / understanding?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 5,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 2,
+        "text": "Team member is a key contributor to the team's success, he / she puts aside own ego when it comes to team projects?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 6,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 2,
+        "text": "Team member shares knowledge and experience with other team members?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 7,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 2,
+        "text": "Team member is ready to support other team members when needed?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 8,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 3,
+        "text": "Team member does not blame people or make excuses but mostly adopts a constructive view about how to resolve difficulties and get things done?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 9,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 3,
+        "text": "Team member is able to work autonomously (i.e., delivers and makes decisions without waiting for directions)?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 10,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 4,
+        "text": "Team member puts effort to ensure that high quality of work is delivered on time?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 11,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 4,
+        "text": "Team member has the expertise and exhibits solid understanding of his / her role?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 12,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 4,
+        "text": "Team member knows how to priorities for output?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 13,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 4,
+        "text": "Work methods and approaches used to perform his / her job are effective and continuously improving?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 14,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 5,
+        "text": "Team member appears to be motivated by his / her work-related tasks, job, and relationships?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 15,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 5,
+        "text": "Team member is willing to make suggestions and to provide new ideas to develop work processes?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 16,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 6,
+        "text": "Team member takes the lead and shows ownership of projects or assignments?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 17,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Multiple_Choice",
+        "question_category": 6,
+        "text": "Team member shows accountability and takes responsibility of project / assignment outcomes?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 18,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Open_Ended_Question",
+        "question_category": 1,
+        "text": "Have you experienced any problems with the team member interpersonally? How would you recommend the team member improve his / her communication and interpersonal skills?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 19,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Open_Ended_Question",
+        "question_category": 2,
+        "text": "How would you recommend the team member improve his / her problem solving and decision making skills?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 20,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Open_Ended_Question",
+        "question_category": 3,
+        "text": "How would you recommend the team member improve his / her problem solving and decision making skills?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 21,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Open_Ended_Question",
+        "question_category": 4,
+        "text": "How would you recommend the team member improve his / her execution skills?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 22,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Open_Ended_Question",
+        "question_category": 5,
+        "text": "How would you recommend the team member improve his / her motivation and initiative?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 23,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Open_Ended_Question",
+        "question_category": 6,
+        "text": "How would you recommend the team member improve his / her leadership skills?",
+        "disabled": false,
+        "required": false
+    }
+},
+{
+    "model": "evaluation_processes.question",
+    "pk": 24,
+    "fields": {
+        "evaluation_type": "Evaluation_360",
+        "question_type": "Open_Ended_Question",
+        "question_category": 7,
+        "text": "If you have any additional comments or feedback, please list them below?",
+        "disabled": false,
+        "required": false
+    }
+}
+]

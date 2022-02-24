@@ -3,7 +3,7 @@ Vue.component('input-field', {
     template: `
             <div  class="form-group" v-if="fieldData !== undefined">
                 <label class="control-label ">
-                   [[fieldData.name]]
+                   [[fieldData.text]]
                     <span class="asteriskField" v-if="fieldData.required">*</span>
                 </label>
                 <div class="controls ">
