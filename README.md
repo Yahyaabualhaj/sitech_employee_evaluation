@@ -16,6 +16,19 @@
 ###   * Goal(of improvement) tracking.
 
 
+## Used Technology.
+
+### FrontEnd: 
+#### * Django Template
+#### * Vuejs2 
+#### * BootStrap 5
+### BackEnd: Django Framework.
+
+
+
+
+
+
 
 
 
