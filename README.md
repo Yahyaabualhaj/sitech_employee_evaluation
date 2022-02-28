@@ -12,7 +12,7 @@
 ## What is SEE Skelton?
 ###   * Employee Evaluation.
 ###   * Manager/Leadership evaluation tools. 
-###     Actions.
+###   * Actions.
 ###   * Goal(of improvement) tracking.
 
 
