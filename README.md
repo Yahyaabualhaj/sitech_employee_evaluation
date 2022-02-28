@@ -22,7 +22,9 @@
 #### * Django Template
 #### * Vuejs2 
 #### * BootStrap 5
-### BackEnd: Django Framework.
+
+### BackEnd: 
+#### * Django Framework.
 
 
 
